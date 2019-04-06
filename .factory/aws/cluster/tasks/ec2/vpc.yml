@@ -1,0 +1,22 @@
+---
+########################################################################################################################
+#
+# Create VPC
+# Documentation: https://docs.ansible.com/ansible/2.4/ec2_vpc_net_module.html
+#
+########################################################################################################################
+
+    - ec2_vpc_net:
+        name: "{{ ec2_name_prefix }}-vpc"
+        cidr_block: 10.10.0.0/16
+        tags:
+          family: "{{ ec2_name_prefix }}"
+        tenancy: default
+        region: "{{ ec2_region }}"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+      register: vpc
+
+    - name: Checking vpc id
+      debug:
+        msg: "{{ vpc.vpc.id }}"

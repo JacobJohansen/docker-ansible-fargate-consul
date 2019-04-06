@@ -1,0 +1,28 @@
+---
+########################################################################################################################
+#
+# Create Service
+# Documentation: https://docs.ansible.com/ansible/latest/modules/ecs_service_module.html
+#
+########################################################################################################################
+
+    - name: create service
+      ecs_service:
+        state: present
+        name: "{{ ec2_name_prefix }}-service"
+        cluster: "{{ ec2_name_prefix }}-cluster"
+        task_definition: "{{ ec2_name_prefix }}-taskdefinition:1"
+        desired_count: 3
+        network_configuration:
+          assign_public_ip: yes
+          subnets:
+            - "{{ subnet1.subnet.id }}"
+            - "{{ subnet2.subnet.id }}"
+            - "{{ subnet3.subnet.id }}"
+          security_groups:
+            - "{{ securitygroup.group_id }}"
+        launch_type: FARGATE
+        region: "{{ ec2_region }}"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+
