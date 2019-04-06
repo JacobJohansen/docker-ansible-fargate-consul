@@ -3,11 +3,11 @@ VERSION  := latest
 IMG      := ${NAME}:${VERSION}
 
 default:
-	$(MAKE) push
+	$(MAKE) production
 
-push :
-	ansible-playbook infrastructure.yml --syntax-check --vault-password-file ~/.aws_vault_pass.txt
-	ansible-playbook infrastructure.yml --vault-password-file ~/.aws_vault_pass.txt
+production :
+	ansible-playbook production.yml --syntax-check --vault-password-file ~/.aws_vault_pass.txt
+	ansible-playbook production.yml --vault-password-file ~/.aws_vault_pass.txt
 
 vagrant :
 	vagrant up
