@@ -3,9 +3,6 @@
 - name: deploy consul
   hosts: 127.0.0.1
   connection: local
-  vars:
-    ec2_name_prefix: foo-bar-consul
-    ec2_region: eu-west-1
 
   pre_tasks:
     - pause:

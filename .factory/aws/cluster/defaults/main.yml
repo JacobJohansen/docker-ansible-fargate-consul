@@ -1,0 +1,20 @@
+
+# Default group name
+ec2_name_prefix: foo-bar-consul
+
+# Default region
+ec2_region: eu-west-1
+
+ec2_vpc_cidr: 10.10.0.0/16
+
+# Default HA region subnets
+ec2_vpc_subnets:
+  a:
+    name: "{{ ec2_region }}a"
+    cidr: 10.10.1.16/28
+  b:
+    name: "{{ ec2_region }}b"
+    cidr: 10.10.2.16/28
+  c:
+    name: "{{ ec2_region }}c"
+    cidr: 10.10.3.16/28

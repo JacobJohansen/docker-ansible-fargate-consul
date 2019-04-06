@@ -6,7 +6,6 @@
 #
 ########################################################################################################################
 
-
     - name: Create task definition
       ecs_taskdefinition:
         family: "{{ ec2_name_prefix }}-taskdefinition"
