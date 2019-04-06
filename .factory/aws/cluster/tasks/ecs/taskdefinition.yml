@@ -1,0 +1,28 @@
+---
+########################################################################################################################
+#
+# Create Taskdefinition
+# https://docs.ansible.com/ansible/latest/modules/ecs_taskdefinition_module.html
+#
+########################################################################################################################
+
+
+    - name: Create task definition
+      ecs_taskdefinition:
+        family: "{{ ec2_name_prefix }}-taskdefinition"
+        containers:
+          - name: "{{ ec2_name_prefix }}-taskdefinition"
+            essential: true
+            image: "consul"
+            portMappings:
+              - containerPort: 8500
+                hostPort:      8500
+        launch_type: FARGATE
+        revision: 1
+        cpu: 256
+        memory: 512
+        state: present
+        network_mode: awsvpc
+        region: "{{ ec2_region }}"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
