@@ -1,18 +1,13 @@
 ---
-# Source: https://github.com/mediapeers/ansible-role-ecs-cluster/edit/master/.travis.yml
-sudo: required
-dist: trusty
 language: python
+python: "2.7"
 
 before_install:
   - sudo apt-get update -qq
 
 install:
-  - sudo apt-get install -y python-pip python-dev
-  - python --version
-  - pip --version
-  - sudo -H pip install ansible
-  - ansible --version
+  - pip install ansible
 
 script:
   - ansible-playbook deploy.yml --syntax-check
+
