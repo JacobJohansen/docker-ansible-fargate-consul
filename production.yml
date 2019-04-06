@@ -11,10 +11,20 @@
       no_log: yes
       when: aws_access_key is not defined
 
+    - name: set key
+      set_fact:
+        aws_access_key: "{{ aws_access_key_prompt.user_input }}"
+      when: aws_access_key is not defined
+
     - pause:
         prompt: "AWS SECRET KEY, please open README to store encrypted"
       register: aws_secret_key_prompt
       no_log: yes
+      when: aws_secret_key is not defined
+
+    - name: set secret
+      set_fact:
+        aws_secret_key: "{{ aws_secret_key_prompt.user_input }}"
       when: aws_secret_key is not defined
 
   roles:
