@@ -2,6 +2,8 @@
 distributed over at least 3 availability zones
 eu-west-1a, eu-west-1b, eu-west-1c
 
+[![Build Status](https://travis-ci.org/reiser/docker-ansible-fargate-consul.svg?branch=master)](https://travis-ci.org/reiser/docker-ansible-fargate-consul)
+
 ## How to run local
 ```
 vagrant up
