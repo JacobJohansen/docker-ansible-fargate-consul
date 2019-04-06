@@ -14,3 +14,10 @@ vagrant docker-exec -it consul-1 -- sh  # shell
 pip install boto3
 make push
 ```
+
+
+#### Encrypt 
+```
+pip install boto3
+make push
+```
