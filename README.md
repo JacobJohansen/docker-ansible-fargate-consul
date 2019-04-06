@@ -14,6 +14,10 @@ vagrant docker-exec -it consul-1 -- sh  # shell
 pip install boto3
 make push
 ```
-
-    aws_access_key: AKIAJLFSO4DRGLO7HLGA
-    aws_secret_key: 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
+## Encrypt creditentials
+```
+echo "aws_access_key: XXXX" > group_vars/aws
+echo "aws_secret_key: XXXX" >> group_vars/aws
+ansible-vault encrypt group_vars/aws
+echo "yourpassword" > ~/.aws_vault_pass.txt
+```
