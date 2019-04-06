@@ -9,12 +9,13 @@ vagrant docker-exec consul-1 -- consul info # verify
 vagrant docker-exec -it consul-1 -- sh  # shell
 ```
 
-## Hot to prepare production
+## How to run in production
 ```
 pip install boto3
 make push
 ```
-## Encrypt creditentials
+
+## How to encrypt creditentials
 ```
 echo "aws_access_key: XXXX" > group_vars/aws
 echo "aws_secret_key: XXXX" >> group_vars/aws
