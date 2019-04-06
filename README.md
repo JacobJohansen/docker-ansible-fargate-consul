@@ -17,7 +17,7 @@ pip install boto3
 make push
 ```
 
-## How to encrypt creditentials
+## How to encrypt credentials
 ```
 echo "aws_access_key: XXXX" > group_vars/aws
 echo "aws_secret_key: XXXX" >> group_vars/aws
