@@ -9,5 +9,6 @@ install:
   - pip install ansible
 
 script:
-  - ansible-playbook deploy.yml --syntax-check
+  - ansible-playbook vagrant.yml --syntax-check
+  - ansible-playbook production.yml --syntax-check
 

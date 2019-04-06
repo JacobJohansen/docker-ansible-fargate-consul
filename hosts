@@ -1,3 +1,8 @@
 [aws]
 localhost ansible_connection=local ansible_python_interpreter=python
 
+[vagrant]
+consul-1
+consul-2
+consul-3
+
