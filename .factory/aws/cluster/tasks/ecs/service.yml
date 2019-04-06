@@ -9,19 +9,21 @@
     - name: create service
       ecs_service:
         state: present
+        delay: "{{ ecs_delay }}"
+        repeat: "{{ ecs_repeat }}"
         name: "{{ ec2_name_prefix }}-service"
         cluster: "{{ ec2_name_prefix }}-cluster"
         task_definition: "{{ ec2_name_prefix }}-taskdefinition:1"
-        desired_count: 3
+        desired_count: "{{ ec2_vpc_subnets|length }}"
         network_configuration:
-          assign_public_ip: yes
+          assign_public_ip: "{{ ecs_public_ip }}"
           subnets:
             - "{{ subnets.results[0].subnet.id }}"
             - "{{ subnets.results[1].subnet.id }}"
             - "{{ subnets.results[2].subnet.id }}"
           security_groups:
             - "{{ securitygroup.group_id }}"
-        launch_type: FARGATE
+        launch_type: "{{ ecs_launchtype }}"
         region: "{{ ec2_region }}"
         aws_access_key: "{{ aws_access_key }}"
         aws_secret_key: "{{ aws_secret_key }}"

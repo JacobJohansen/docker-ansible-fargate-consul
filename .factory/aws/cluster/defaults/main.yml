@@ -18,3 +18,27 @@ ec2_vpc_subnets:
   c:
     name: "{{ ec2_region }}c"
     cidr: 10.10.3.16/28
+
+# Default launchtype
+ecs_launchtype: FARGATE
+
+# Default delay to wait
+ecs_delay: 10
+
+# Default repeats waiting for service
+ecs_repeat: 10
+
+# Default public ips
+ecs_public_ip: yes
+
+# Default Image
+ecs_task_image: consul
+
+# Default Image revision
+ecs_task_revision: 1
+
+# Default CPU
+ecs_task_cpu: 256
+
+# Default Memory
+ecs_task_cpu: 512

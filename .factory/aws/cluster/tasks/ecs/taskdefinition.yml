@@ -12,14 +12,14 @@
         containers:
           - name: "{{ ec2_name_prefix }}-taskdefinition"
             essential: true
-            image: "consul"
+            image: "{{ ecs_task_image }}"
             portMappings:
               - containerPort: 8500
                 hostPort:      8500
-        launch_type: FARGATE
-        revision: 1
-        cpu: 256
-        memory: 512
+        launch_type: "{{ ecs_launchtype }}"
+        revision: "{{ ecs_task_revision }}"
+        cpu: "{{ ecs_task_cpu }}"
+        memory: "{{ ecs_task_memory }}"
         state: present
         network_mode: awsvpc
         region: "{{ ec2_region }}"
