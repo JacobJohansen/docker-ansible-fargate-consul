@@ -1,0 +1,27 @@
+---
+########################################################################################################################
+#
+# Create Security Group
+# Documentation: https://docs.ansible.com/ansible/latest/modules/ec2_group_module.html
+#
+########################################################################################################################
+
+    - name: create security group
+      ec2_group:
+        name: "{{ ec2_name_prefix }}-security-group"
+        description: "{{ ec2_name_prefix }}-security-group"
+        vpc_id: "{{ vpc.vpc.id }}"
+        region: "{{ ec2_region }}"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        rules:
+          - proto: tcp
+            ports:
+              - 8500
+            cidr_ip: 0.0.0.0/0
+            rule_desc: allow all on port 8500
+      register: securitygroup
+
+    - name: Checking security group id
+      debug:
+        msg: "{{ securitygroup.group_id }}"
