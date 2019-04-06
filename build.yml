@@ -1,8 +1,0 @@
----
-
-- name: install consul
-  hosts: docker
-  connection: docker
-
-  roles:
-   - { role: consul, tags: [ 'consul' ]}
