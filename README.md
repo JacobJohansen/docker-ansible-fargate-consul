@@ -1,4 +1,4 @@
-# Ansible controlled AWS Fargate Consul cluster
+# HashiCorp Consul on AWS ECS FARGATE HA Cluster
 distributed over at least 3 availability zones
 eu-west-1a, eu-west-1b, eu-west-1c
 
