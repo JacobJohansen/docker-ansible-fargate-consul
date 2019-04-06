@@ -16,9 +16,9 @@
         network_configuration:
           assign_public_ip: yes
           subnets:
-            - "{{ subnet1.subnet.id }}"
-            - "{{ subnet2.subnet.id }}"
-            - "{{ subnet3.subnet.id }}"
+            - "{{ subnets.results[0].subnet.id }}"
+            - "{{ subnets.results[1].subnet.id }}"
+            - "{{ subnets.results[2].subnet.id }}"
           security_groups:
             - "{{ securitygroup.group_id }}"
         launch_type: FARGATE
