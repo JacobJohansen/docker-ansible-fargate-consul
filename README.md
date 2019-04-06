@@ -4,6 +4,8 @@ eu-west-1a, eu-west-1b, eu-west-1c
 
 [![Build Status](https://travis-ci.org/reiser/docker-ansible-fargate-consul.svg?branch=master)](https://travis-ci.org/reiser/docker-ansible-fargate-consul)
 
+<img src="https://raw.githubusercontent.com/reiser/docker-ansible-fargate-consul/master/.architecture/architecture.svg?sanitize=true">
+
 ## How to run local
 ```
 make vagrant
