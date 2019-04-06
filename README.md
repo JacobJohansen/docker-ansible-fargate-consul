@@ -15,9 +15,5 @@ pip install boto3
 make push
 ```
 
-
-#### Encrypt 
-```
-pip install boto3
-make push
-```
+    aws_access_key: AKIAJLFSO4DRGLO7HLGA
+    aws_secret_key: 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
