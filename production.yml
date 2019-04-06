@@ -1,0 +1,21 @@
+---
+
+- name: deploy consul
+  hosts: 127.0.0.1
+  connection: local
+
+  pre_tasks:
+    - pause:
+        prompt: "AWS ACCESS KEY required, please open README to store encrypted"
+      register: aws_access_key_prompt
+      no_log: yes
+      when: aws_access_key is not defined
+
+    - pause:
+        prompt: "AWS SECRET KEY, please open README to store encrypted"
+      register: aws_secret_key_prompt
+      no_log: yes
+      when: aws_secret_key is not defined
+
+  roles:
+   - { role: aws/cluster, tags: [ 'aws/cluster' ]}
