@@ -6,7 +6,7 @@ eu-west-1a, eu-west-1b, eu-west-1c
 
 ## How to run local
 ```
-vagrant up
+make vagrant
 vagrant docker-exec consul-1 -- consul info # verify
 vagrant docker-exec -it consul-1 -- sh  # shell
 ```
@@ -14,7 +14,7 @@ vagrant docker-exec -it consul-1 -- sh  # shell
 ## How to run in production
 ```
 pip install boto3
-make push
+make production
 ```
 
 ## How to encrypt credentials
