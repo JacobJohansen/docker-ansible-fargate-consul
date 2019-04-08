@@ -16,7 +16,11 @@
             portMappings:
               - containerPort: 8500
                 hostPort:      8500
-        force_create: yes
+            environment:
+              - name: CONSUL_BIND_INTERFACE
+                value: eth0
+              - name: CONSUL_LOCAL_CONFIG
+                value: "{{ lookup('template','./template/docker_consul_local_config.json.j2')|to_json }}" # TODO: remove after bugfix https://github.com/ansible/ansible/issues/44897
         launch_type: "{{ ecs_launchtype }}"
         cpu: "{{ ecs_task_cpu }}"
         memory: "{{ ecs_task_memory }}"
