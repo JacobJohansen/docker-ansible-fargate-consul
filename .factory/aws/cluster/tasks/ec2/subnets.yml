@@ -19,6 +19,6 @@
           aws_secret_key: "{{ aws_secret_key }}"
         register: "subnets"
         loop:
-          - { id: 1, az: "{{ ec2_vpc_subnets.a }}", cidr: '{{ ec2_vpc_subnets.a.cidr }}' }
-          - { id: 2, az: "{{ ec2_vpc_subnets.b }}", cidr: '{{ ec2_vpc_subnets.b.cidr }}' }
-          - { id: 3, az: "{{ ec2_vpc_subnets.c }}", cidr: '{{ ec2_vpc_subnets.c.cidr }}' }
+          - { id: 1, az: "{{ ec2_vpc_subnets.a.name }}", cidr: '{{ ec2_vpc_subnets.a.cidr }}' }
+          - { id: 2, az: "{{ ec2_vpc_subnets.b.name }}", cidr: '{{ ec2_vpc_subnets.b.cidr }}' }
+          - { id: 3, az: "{{ ec2_vpc_subnets.c.name }}", cidr: '{{ ec2_vpc_subnets.c.cidr }}' }
