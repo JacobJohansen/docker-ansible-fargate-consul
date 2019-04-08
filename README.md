@@ -18,8 +18,6 @@ vagrant docker-exec -it consul-1 -- sh  # shell
 pip install boto3
 pip install boto
 make production
-
-Ensure in AWS to opt-in new clusters to support tags on tasks, outdiscovery will not work without
 ```
 
 ## How to encrypt credentials
