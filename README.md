@@ -16,6 +16,7 @@ vagrant docker-exec -it consul-1 -- sh  # shell
 ## How to run in production
 ```
 pip install boto3
+pip install boto
 make production
 ```
 

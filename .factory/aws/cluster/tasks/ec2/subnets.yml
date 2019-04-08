@@ -11,14 +11,32 @@
           state: present
           az: "{{ item.az }}"
           vpc_id: "{{ vpc.vpc.id }}"
+          resource_tags:
+            Name: "{{ ec2_name_prefix }}-{{ item.az }}"
           cidr: "{{ item.cidr }}"
           tags:
             family: "{{ ec2_name_prefix }}"
           region: "{{ ec2_region }}"
           aws_access_key: "{{ aws_access_key }}"
           aws_secret_key: "{{ aws_secret_key }}"
-        register: "subnets"
+        register: subnets
         loop:
           - { id: 1, az: "{{ ec2_vpc_subnets.a.name }}", cidr: '{{ ec2_vpc_subnets.a.cidr }}' }
           - { id: 2, az: "{{ ec2_vpc_subnets.b.name }}", cidr: '{{ ec2_vpc_subnets.b.cidr }}' }
           - { id: 3, az: "{{ ec2_vpc_subnets.c.name }}", cidr: '{{ ec2_vpc_subnets.c.cidr }}' }
+
+      - name: set subnet routing
+        ec2_vpc_route_table:
+          vpc_id: "{{ vpc.vpc.id }}"
+          tags:
+            Name: "{{ ec2_name_prefix }}-route-table"
+          subnets:
+            - "{{ subnets.results[0].subnet.id }}"
+            - "{{ subnets.results[1].subnet.id }}"
+            - "{{ subnets.results[2].subnet.id }}"
+          routes:
+            - dest: 0.0.0.0/0
+              gateway_id: "{{ igw.gateway_id }}"
+          region: "{{ ec2_region }}"
+          aws_access_key: "{{ aws_access_key }}"
+          aws_secret_key: "{{ aws_secret_key }}"

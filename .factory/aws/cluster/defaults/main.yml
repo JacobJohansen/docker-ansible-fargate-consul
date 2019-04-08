@@ -34,9 +34,6 @@ ecs_public_ip: yes
 # Default Image
 ecs_task_image: consul
 
-# Default Image revision
-ecs_task_revision: 1
-
 # Default CPU
 ecs_task_cpu: 256
 

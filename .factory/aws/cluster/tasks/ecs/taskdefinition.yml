@@ -16,11 +16,7 @@
             portMappings:
               - containerPort: 8500
                 hostPort:      8500
-            environment:
-              - name: CONSUL_BIND_INTERFACE
-                value: eth0
-              - name: CONSUL_LOCAL_CONFIG
-                value: '{ "datacenter": "foo", "server": true, "encrypt": "{{ consul_key }}"}'
+        force_create: yes
         launch_type: "{{ ecs_launchtype }}"
         cpu: "{{ ecs_task_cpu }}"
         memory: "{{ ecs_task_memory }}"

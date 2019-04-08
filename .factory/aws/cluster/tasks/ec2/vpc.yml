@@ -17,6 +17,10 @@
         aws_secret_key: "{{ aws_secret_key }}"
       register: vpc
 
-    - name: Checking vpc id
-      debug:
-        msg: "{{ vpc.vpc.id }}"
+    - ec2_vpc_igw:
+        vpc_id: "{{ vpc.vpc.id }}"
+        state: present
+        region: "{{ ec2_region }}"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+      register: igw
