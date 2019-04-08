@@ -15,7 +15,7 @@
         repeat: "{{ ecs_repeat }}"
         name: "{{ ec2_name_prefix }}-service-{{ item.name }}"
         cluster: "{{ ec2_name_prefix }}-cluster"
-        task_definition: "{{ ec2_name_prefix }}-taskdefinition:1"
+        task_definition: "{{ ec2_name_prefix }}-taskdefinition:latest"
         desired_count: "1"
         network_configuration:
           assign_public_ip: "{{ ecs_public_ip }}"

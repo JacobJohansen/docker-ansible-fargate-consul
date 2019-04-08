@@ -27,5 +27,16 @@
         aws_secret_key: "{{ aws_secret_key_prompt.user_input }}"
       when: aws_secret_key is not defined
 
+    - pause:
+        prompt: "CONSUL KEY, ex: zSni4XjggpO8jW2nofP9VA== please don't use and open README to store encrypted"
+      register: consul_key_prompt
+      no_log: yes
+      when: consul_key is not defined
+
+    - name: set consul key
+      set_fact:
+        aws_secret_key: "{{ consul_key_prompt.user_input }}"
+      when: consul_key is not defined
+
   roles:
    - { role: aws/cluster, tags: [ 'aws/cluster' ]}
