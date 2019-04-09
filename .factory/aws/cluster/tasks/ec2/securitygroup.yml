@@ -18,6 +18,10 @@
           - proto: tcp
             ports:
               - 8500
+              - 8600
+              - 8301
+              - 8302
+              - 8300
             cidr_ip: 0.0.0.0/0
             rule_desc: allow all on port 8500
       register: securitygroup

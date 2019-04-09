@@ -1,1 +1,1 @@
-{ "server": true, "datacenter": "foo", "encrypt": "{{ consul_key }}" }
+{ "server": true, "datacenter": "foo", "encrypt": "{{ consul_key }}", "retry_join": ["provider=aws access_key_id={{ aws_access_key }} secret_access_key={{ aws_secret_key }} region={{ ec2_region }} tag_key=aws:ecs:clusterName tag_value={{ ec2_name_prefix }}-cluster"]  }
