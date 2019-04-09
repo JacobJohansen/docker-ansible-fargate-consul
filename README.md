@@ -25,6 +25,7 @@ make production
 ```
 echo "aws_access_key: XXXX" > group_vars/aws
 echo "aws_secret_key: XXXX" >> group_vars/aws
+echo "consul_key: XXXX" >> group_vars/aws
 ansible-vault encrypt group_vars/aws
 echo "yourpassword" > ~/.aws_vault_pass.txt
 ```

@@ -15,9 +15,6 @@
         cluster: "{{ ec2_name_prefix }}-cluster"
         task_definition: "{{ ec2_name_prefix }}-taskdefinition"
         desired_count: "2"
-        #service_registries:
-        #  - containerName: "{{ ec2_name_prefix }}-container"
-        #    registryArn: "arn:aws:servicediscovery:eu-west-1:304499211620:service/srv-jq6kmb7r2sdmdzpk"
         network_configuration:
           assign_public_ip: "{{ ecs_public_ip }}"
           subnets:
@@ -30,5 +27,5 @@
         aws_secret_key: "{{ aws_secret_key }}"
       loop:
         - { id: 1, name: "{{ subnets.results[0].subnet.availability_zone }}", subnet: "{{ subnets.results[0].subnet.id }}" }
-        #- { id: 2, name: "{{ subnets.results[1].subnet.availability_zone }}", subnet: "{{ subnets.results[1].subnet.id }}" }
-        #- { id: 3, name: "{{ subnets.results[2].subnet.availability_zone }}", subnet: "{{ subnets.results[2].subnet.id }}" }
+        - { id: 2, name: "{{ subnets.results[1].subnet.availability_zone }}", subnet: "{{ subnets.results[1].subnet.id }}" }
+        - { id: 3, name: "{{ subnets.results[2].subnet.availability_zone }}", subnet: "{{ subnets.results[2].subnet.id }}" }
