@@ -7,8 +7,9 @@ before_install:
 
 install:
   - pip install ansible
+  - pip install ansible-lint
 
 script:
-  - ansible-playbook vagrant.yml --syntax-check
-  - ansible-playbook production.yml --syntax-check
+  - ansible-playbook --syntax-check *.yml
+  - ansible-lint -v *.yml
 

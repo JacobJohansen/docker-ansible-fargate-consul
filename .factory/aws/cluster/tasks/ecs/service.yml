@@ -14,7 +14,7 @@
         name: "{{ ec2_name_prefix }}-service-{{ item.name }}"
         cluster: "{{ ec2_name_prefix }}-cluster"
         task_definition: "{{ ec2_name_prefix }}-taskdefinition"
-        desired_count: "2"
+        desired_count: "1"
         network_configuration:
           assign_public_ip: "{{ ecs_public_ip }}"
           subnets:
@@ -25,7 +25,10 @@
         region: "{{ ec2_region }}"
         aws_access_key: "{{ aws_access_key }}"
         aws_secret_key: "{{ aws_secret_key }}"
+      register: services
       loop:
         - { id: 1, name: "{{ subnets.results[0].subnet.availability_zone }}", subnet: "{{ subnets.results[0].subnet.id }}" }
         - { id: 2, name: "{{ subnets.results[1].subnet.availability_zone }}", subnet: "{{ subnets.results[1].subnet.id }}" }
         - { id: 3, name: "{{ subnets.results[2].subnet.availability_zone }}", subnet: "{{ subnets.results[2].subnet.id }}" }
+
+    - debug: msg="{{services}}"
