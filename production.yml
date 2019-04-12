@@ -12,6 +12,14 @@
         msg: >
           "You must update Ansible to at least 2.7 to support tagging on AWS Fargate"
 
+    - name: map environment variables
+      debug: msg="{{ lookup('env','AWS_ACCESS_KEY') }}"
+      vars:
+        aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
+        aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
+        consul_key: "{{ lookup('env', 'CONSUL_KEY') }}"
+      when: aws_access_key is not defined
+
     - name: get AWS Key
       pause:
         prompt: "AWS ACCESS KEY required, please open README to store encrypted"
