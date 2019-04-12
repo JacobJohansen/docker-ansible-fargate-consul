@@ -8,6 +8,8 @@ before_install:
 install:
   - pip install ansible
   - pip install ansible-lint
+  - pip install boto
+  - pip install boto3
 
 script:
   - make travis
