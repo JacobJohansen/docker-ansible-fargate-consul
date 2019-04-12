@@ -6,6 +6,12 @@
 
   pre_tasks:
 
+    - name: Verify Ansible version "{{ ansible_version.full }}"
+      assert:
+        that: "ansible_version.full is version_compare('2.7', '>=')"
+        msg: >
+          "You must update Ansible to at least 2.7 to support tagging on AWS Fargate"
+
     - name: map environment variables "{{ lookup('env','TEST123') }}"
       set_fact:
         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
