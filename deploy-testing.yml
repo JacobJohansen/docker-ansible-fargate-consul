@@ -12,7 +12,7 @@
         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
         aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
         consul_key: "{{ lookup('env', 'CONSUL_KEY') }}"
-        test_key: "{{ lookup('env', 'TEST123') }}"
+        test_key: "{{ lookup('env', 'TEST123') }} test"
 
     - debug: msg="{{ test_key }}"
 
