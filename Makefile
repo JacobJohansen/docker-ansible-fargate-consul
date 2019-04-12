@@ -15,8 +15,8 @@ travis :
 
 vagrant :
 	vagrant up
-	ansible-playbook vagrant.yml --syntax-check
-	ansible-playbook vagrant.yml
+	ansible-playbook deploy-vagrant.yml --syntax-check
+	ansible-playbook deploy-vagrant.yml
 
 testing:
 	ansible-playbook --syntax-check deploy-*.yml
