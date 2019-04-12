@@ -8,7 +8,7 @@
 
     - name: map environment variables
       debug: msg="{{ lookup('env','TEST123') }}"
-      vars:
+      set_fact:
         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
         aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
         consul_key: "{{ lookup('env', 'CONSUL_KEY') }}"
