@@ -1,0 +1,17 @@
+---
+
+- name: deploy consul
+  hosts: 127.0.0.1
+  connection: local
+
+  pre_tasks:
+
+    - name: map environment variables
+      debug: msg="{{ lookup('env','AWS_ACCESS_KEY') }}"
+      vars:
+        aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
+        aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
+        consul_key: "{{ lookup('env', 'CONSUL_KEY') }}"
+
+  roles:
+   - { role: aws/cluster, tags: [ 'aws/cluster' ]}
