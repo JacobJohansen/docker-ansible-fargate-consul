@@ -6,8 +6,7 @@
 
   pre_tasks:
 
-    - name: map environment variables
-      debug: msg="{{ lookup('env','TEST123') }}"
+    - name: map environment variables "{{ lookup('env','TEST123') }}"
       set_fact:
         aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
         aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
