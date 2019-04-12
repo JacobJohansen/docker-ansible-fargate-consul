@@ -22,7 +22,7 @@ matrix:
         - make testing
 
     - language: go
-        script:
-          - wget https://github.com/gruntwork-io/cloud-nuke/releases/download/v0.1.7/cloud-nuke_linux_amd64
-          - chmod +x cloud-nuke_linux_amd64
-          - cloud-nuke_linux_amd64 aws $AWS_REGION
+      script:
+        - wget https://github.com/gruntwork-io/cloud-nuke/releases/download/v0.1.7/cloud-nuke_linux_amd64
+        - chmod +x cloud-nuke_linux_amd64
+        - cloud-nuke_linux_amd64 aws $AWS_REGION
