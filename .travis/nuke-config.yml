@@ -1,0 +1,9 @@
+regions:
+  - eu-west-1
+
+account-blacklist:
+  - "999999999999" # production
+
+accounts:
+  "999999999998": {} # aws-nuke-example
+  
