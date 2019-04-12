@@ -6,6 +6,10 @@ eu-west-1a, eu-west-1b, eu-west-1c
 
 <img src="https://raw.githubusercontent.com/reiser/docker-ansible-fargate-consul/master/.architecture/architecture.svg?sanitize=true">
 
+TODO: 
+- adding loadbalancer to discover cluster and service
+- kitchen
+
 ## How to run local
 ```
 make vagrant
