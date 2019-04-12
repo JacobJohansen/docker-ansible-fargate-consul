@@ -9,10 +9,10 @@ production :
 	ansible-playbook production.yml --syntax-check --vault-password-file ~/.aws_vault_pass.txt
 	ansible-playbook production.yml --vault-password-file ~/.aws_vault_pass.txt
 
-test :
+travis :
 	ansible-playbook --syntax-check production.yml
 	ansible-lint -v production.yml
-	#ansible-playbook production.yml
+	ansible-playbook production.yml
 
 vagrant :
 	vagrant up
