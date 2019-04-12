@@ -6,9 +6,9 @@
 #
 ########################################################################################################################
 
-      - name: present subnet {{ ec2_vpc_subnets.a.name }}
+      - name: "{{ state }} subnet {{ ec2_vpc_subnets.a.name }}"
         ec2_vpc_subnet:
-          state: present
+          state: "{{ state }}"
           az: "{{ item.az }}"
           vpc_id: "{{ vpc.vpc.id }}"
           resource_tags:
@@ -25,8 +25,9 @@
           - { id: 2, az: "{{ ec2_vpc_subnets.b.name }}", cidr: '{{ ec2_vpc_subnets.b.cidr }}' }
           - { id: 3, az: "{{ ec2_vpc_subnets.c.name }}", cidr: '{{ ec2_vpc_subnets.c.cidr }}' }
 
-      - name: set subnet routing
+      - name: "{{ state }} subnet routing"
         ec2_vpc_route_table:
+          state: "{{ state }}"
           vpc_id: "{{ vpc.vpc.id }}"
           tags:
             Name: "{{ ec2_name_prefix }}-route-table"

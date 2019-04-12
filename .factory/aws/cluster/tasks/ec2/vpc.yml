@@ -6,8 +6,9 @@
 #
 ########################################################################################################################
 
-    - name: present VPC
+    - name: "{{ state }} VPC"
       ec2_vpc_net:
+        state: "{{ state }}"
         name: "{{ ec2_name_prefix }}-vpc"
         cidr_block: "{{ ec2_vpc_cidr }}"
         tags:
@@ -18,23 +19,11 @@
         aws_secret_key: "{{ aws_secret_key }}"
       register: vpc
 
-    - name: present network gateway
+    - name: "{{ state }} network gateway"
       ec2_vpc_igw:
+        state: "{{ state }}"
         vpc_id: "{{ vpc.vpc.id }}"
-        state: present
         region: "{{ ec2_region }}"
         aws_access_key: "{{ aws_access_key }}"
         aws_secret_key: "{{ aws_secret_key }}"
       register: igw
-
-#    - name: create a private zone
-#      route53_zone:
-#        zone: consul.local
-#        vpc_id: '{{ vpc.vpc.id }}'
-#        region: "{{ ec2_region }}"
-#        aws_access_key: "{{ aws_access_key }}"
-#        aws_secret_key: "{{ aws_secret_key }}"
-#        comment: "{{ ec2_name_prefix }}-zone"
-#      register: r53
-#
-#    - debug: msg="{{ r53 }}"

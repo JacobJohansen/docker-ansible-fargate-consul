@@ -6,17 +6,13 @@
 #
 ########################################################################################################################
 
-    - name: wait for cluster
+    - name: "{{ state }} cluster"
       ecs_cluster:
+        state: "{{ state }}"
         name: "{{ ec2_name_prefix }}-cluster"
-        state: present
         delay: 10
         repeat: 10
         region: "{{ ec2_region }}"
         aws_access_key: "{{ aws_access_key }}"
         aws_secret_key: "{{ aws_secret_key }}"
       register: cluster
-
-    - name: Checking cluster
-      debug:
-        msg: "{{ cluster.cluster.clusterName }}"

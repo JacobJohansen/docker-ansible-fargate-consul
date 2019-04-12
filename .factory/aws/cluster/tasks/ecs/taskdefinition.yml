@@ -6,8 +6,9 @@
 #
 ########################################################################################################################
 
-    - name: Create task definition
+    - name: "{{ state }} task definition"
       ecs_taskdefinition:
+        state: "{{ state }}"
         family: "{{ ec2_name_prefix }}-taskdefinition"
         containers:
           - name: "{{ ec2_name_prefix }}-taskdefinition"
@@ -33,7 +34,6 @@
         launch_type: "{{ ecs_launchtype }}"
         cpu: "{{ ecs_task_cpu }}"
         memory: '{{ ecs_task_memory }}'
-        state: present
         network_mode: awsvpc
         region: "{{ ec2_region }}"
         aws_access_key: "{{ aws_access_key }}"

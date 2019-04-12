@@ -8,6 +8,7 @@
 
     - name: prepare R53 routing
       ecs_service_facts:
+        state: "{{ state }}"
         cluster: "foo-bar-consul-cluster"
         service: "foo-bar-consul-service-eu-west-1a"
         details: true

@@ -1,4 +1,4 @@
 .idea/
 .vagrant/
+.aws_vault.txt
 group_vars/aws
-nuke-config.yml

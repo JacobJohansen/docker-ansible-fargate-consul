@@ -6,8 +6,9 @@
 #
 ########################################################################################################################
 
-    - name: create security group
+    - name: "{{ state }} security group"
       ec2_group:
+        state: "{{ state }}"
         name: "{{ ec2_name_prefix }}-security-group"
         description: "{{ ec2_name_prefix }}-security-group"
         vpc_id: "{{ vpc.vpc.id }}"

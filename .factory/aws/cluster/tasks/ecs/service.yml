@@ -6,9 +6,9 @@
 #
 ########################################################################################################################
 
-    - name: create service
+    - name: "{{ state }} service"
       ecs_service_local:
-        state: present
+        state: "{{ state }}"
         delay: "{{ ecs_delay }}"
         repeat: "{{ ecs_repeat }}"
         name: "{{ ec2_name_prefix }}-service-{{ item.name }}"

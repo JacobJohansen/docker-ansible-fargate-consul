@@ -6,15 +6,18 @@ default:
 	$(MAKE) production
 
 production :
-	ansible-playbook deploy-prod.yml --syntax-check --vault-password-file ~/.aws_vault_pass.txt
-	ansible-playbook deploy-prod.yml --vault-password-file ~/.aws_vault_pass.txt
+	$(MAKE) testing
+	ansible-playbook deploy-prod.yml
 
 travis :
-	ansible-playbook --syntax-check deploy-*.yml
-	ansible-lint -v deploy-*.yml
+	$(MAKE) testing
 	ansible-playbook deploy-testing.yml
 
 vagrant :
 	vagrant up
 	ansible-playbook vagrant.yml --syntax-check
 	ansible-playbook vagrant.yml
+
+testing:
+	ansible-playbook --syntax-check deploy-*.yml
+	ansible-lint -v deploy-*.yml

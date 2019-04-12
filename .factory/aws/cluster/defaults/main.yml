@@ -1,3 +1,8 @@
+# Default state
+state: present
+
+# Default valid state
+state_present: present
 
 # Default group name
 ec2_name_prefix: foo-bar-consul
