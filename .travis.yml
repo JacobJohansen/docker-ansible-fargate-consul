@@ -1,28 +1,30 @@
 matrix:
   include:
-    - language: python
-      python: "2.7"
-      sudo: false
-
-      env:
-        - BOTO_CONFIG="/dev/null"
-
-      before_install:
-        - sudo apt-get update -qq
-
-      install:
-        - pip install ansible
-        - pip install ansible-lint
-        - pip install boto
-        - pip install boto3
-
-      script:
-        - echo "travis" > .aws_vault.txt
-        - sed -i "s/000000000000/$AWS_ACCOUNT/g" .travis/nuke-config.yml
-        - make testing
+#    - language: python
+#      python: "2.7"
+#      sudo: false
+#
+#      env:
+#        - BOTO_CONFIG="/dev/null"
+#
+#      before_install:
+#        - sudo apt-get update -qq
+#
+#      install:
+#        - pip install ansible
+#        - pip install ansible-lint
+#        - pip install boto
+#        - pip install boto3
+#
+#      script:
+#        - echo "travis" > .aws_vault.txt
+#        - sed -i "s/000000000000/$AWS_ACCOUNT/g" .travis/nuke-config.yml
+#        - make testing
 
     - language: go
       script:
         - wget https://github.com/gruntwork-io/cloud-nuke/releases/download/v0.1.7/cloud-nuke_linux_amd64
-        - chmod +x cloud-nuke_linux_amd64
+        - mv cloud-nuke_linux_amd64 cloud-nuke
+        - chmod +x cloud-nuke
+        - export PATH=$PATH:$(pwd)
         - cloud-nuke_linux_amd64 aws $AWS_REGION
