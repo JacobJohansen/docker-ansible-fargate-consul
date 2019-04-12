@@ -30,5 +30,3 @@
         - { id: 1, name: "{{ subnets.results[0].subnet.availability_zone }}", subnet: "{{ subnets.results[0].subnet.id }}" }
         - { id: 2, name: "{{ subnets.results[1].subnet.availability_zone }}", subnet: "{{ subnets.results[1].subnet.id }}" }
         - { id: 3, name: "{{ subnets.results[2].subnet.availability_zone }}", subnet: "{{ subnets.results[2].subnet.id }}" }
-
-    - debug: msg="{{services}}"

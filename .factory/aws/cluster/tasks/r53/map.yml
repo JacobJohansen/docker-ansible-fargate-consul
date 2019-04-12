@@ -6,7 +6,8 @@
 #
 ########################################################################################################################
 
-    - ecs_service_facts:
+    - name: prepare R53 routing
+      ecs_service_facts:
         cluster: "foo-bar-consul-cluster"
         service: "foo-bar-consul-service-eu-west-1a"
         details: true
@@ -14,7 +15,3 @@
         aws_access_key: "{{ aws_access_key }}"
         aws_secret_key: "{{ aws_secret_key }}"
       register: service
-
-    - name: Checking service
-      debug:
-        msg: "{{ service.services[0].events[0] }}"

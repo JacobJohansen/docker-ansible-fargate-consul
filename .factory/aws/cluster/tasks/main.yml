@@ -8,28 +8,28 @@
 
 # EC2 VPC
 
-      #- include_tasks: ec2/vpc.yml
+      - include_tasks: ec2/vpc.yml
 
 # EC2 Subnets
 
-      #- include_tasks: ec2/subnets.yml
+      - include_tasks: ec2/subnets.yml
 
 # EC2 Create Security Group
 
-      #- include_tasks: ec2/securitygroup.yml
+      - include_tasks: ec2/securitygroup.yml
 
 # ECS Create Cluster
 
-      #- include_tasks: ecs/cluster.yml
+      - include_tasks: ecs/cluster.yml
 
 # ECS Taskdefinition
 
-      #- include_tasks: ecs/taskdefinition.yml
+      - include_tasks: ecs/taskdefinition.yml
 
 # ECS Service
 
-      #- include_tasks: ecs/service.yml
+      - include_tasks: ecs/service.yml
 
 # DNS
 
-      - include_tasks: r53/map.yml
+      #- include_tasks: r53/map.yml
