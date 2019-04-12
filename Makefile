@@ -10,7 +10,7 @@ production :
 	ansible-playbook deploy-prod.yml
 
 testing :
-	$(MAKE) testing
+	$(MAKE) validation
 	ansible-playbook deploy-testing.yml
 
 vagrant :
@@ -18,6 +18,6 @@ vagrant :
 	ansible-playbook deploy-vagrant.yml --syntax-check
 	ansible-playbook deploy-vagrant.yml
 
-testing:
+validation:
 	ansible-playbook --syntax-check deploy-*.yml
 	ansible-lint -v deploy-*.yml
