@@ -17,12 +17,17 @@ vagrant docker-exec consul-1 -- consul info # verify
 vagrant docker-exec -it consul-1 -- sh  # shell
 ```
 
+## How to run testing
+```
+make testing
+```
+
 ## How to run in production
 ```
 brew install pip
 pip install boto3
 pip install boto
-make production
+make prod
 ```
 
 ## How to encrypt credentials
@@ -31,5 +36,5 @@ echo "aws_access_key: XXXX" > group_vars/aws
 echo "aws_secret_key: XXXX" >> group_vars/aws
 echo "consul_key: XXXX" >> group_vars/aws
 ansible-vault encrypt group_vars/aws
-echo "yourpassword" > ~/.aws_vault_pass.txt
+echo "yourpassword" > .aws_vault.txt
 ```
