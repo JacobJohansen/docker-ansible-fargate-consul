@@ -12,7 +12,8 @@
         msg: >
           "You must update Ansible to at least 2.7 to support tagging on AWS Fargate"
 
-    - pause:
+    - name: get AWS Key
+      pause:
         prompt: "AWS ACCESS KEY required, please open README to store encrypted"
       register: aws_access_key_prompt
       no_log: yes
@@ -23,7 +24,8 @@
         aws_access_key: "{{ aws_access_key_prompt.user_input }}"
       when: aws_access_key is not defined
 
-    - pause:
+    - name: get AWS Secret
+      pause:
         prompt: "AWS SECRET KEY, please open README to store encrypted"
       register: aws_secret_key_prompt
       no_log: yes
@@ -34,7 +36,8 @@
         aws_secret_key: "{{ aws_secret_key_prompt.user_input }}"
       when: aws_secret_key is not defined
 
-    - pause:
+    - name: get consul key
+      pause:
         prompt: "CONSUL KEY, ex: zSni4XjggpO8jW2nofP9VA== please don't use and open README to store encrypted"
       register: consul_key_prompt
       no_log: yes

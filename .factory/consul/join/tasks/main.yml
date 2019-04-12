@@ -8,3 +8,4 @@
 
     - name: "join local cluster"
       command: "consul join {{ hostvars['consul_master']['ip'] }}"
+      when: inventory_hostname != "consul-1"

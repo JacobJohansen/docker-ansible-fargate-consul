@@ -6,4 +6,4 @@
 
   roles:
    - { role: consul/init, tags: [ 'consul/init' ], when: inventory_hostname == "consul-1"}
-   - { role: consul/join, tags: [ 'consul/join' ], when: inventory_hostname != "consul-1"}
+   - { role: consul/join, tags: [ 'consul/join' ] }

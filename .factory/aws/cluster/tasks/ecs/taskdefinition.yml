@@ -28,7 +28,8 @@
               - name: CONSUL_BIND_INTERFACE
                 value: eth0
               - name: CONSUL_LOCAL_CONFIG
-                value: "{{ lookup('template','./template/docker_consul_local_config.json.j2')|to_json }}" # TODO: remove after bugfix https://github.com/ansible/ansible/issues/44897
+                # TODO: remove after bugfix https://github.com/ansible/ansible/issues/44897
+                value: "{{ lookup('template','./template/docker_consul_local_config.json.j2')|to_json }}"
         launch_type: "{{ ecs_launchtype }}"
         cpu: "{{ ecs_task_cpu }}"
         memory: '{{ ecs_task_memory }}'
