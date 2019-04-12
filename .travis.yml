@@ -1,25 +1,25 @@
 matrix:
   include:
-#    - language: python
-#      python: "2.7"
-#      sudo: false
-#
-#      env:
-#        - BOTO_CONFIG="/dev/null"
-#
-#      before_install:
-#        - sudo apt-get update -qq
-#
-#      install:
-#        - pip install ansible
-#        - pip install ansible-lint
-#        - pip install boto
-#        - pip install boto3
-#
-#      script:
-#        - echo "travis" > .aws_vault.txt
-#        - sed -i "s/000000000000/$AWS_ACCOUNT/g" .travis/nuke-config.yml
-#        - make testing
+    - language: python
+      python: "2.7"
+      sudo: false
+
+      env:
+        - BOTO_CONFIG="/dev/null"
+
+      before_install:
+        - sudo apt-get update -qq
+
+      install:
+        - pip install ansible
+        - pip install ansible-lint
+        - pip install boto
+        - pip install boto3
+
+      script:
+        - echo "travis" > .aws_vault.txt
+        - sed -i "s/000000000000/$AWS_ACCOUNT/g" .travis/nuke-config.yml
+        - make testing
 
     - language: go
       script:
