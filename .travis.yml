@@ -16,6 +16,6 @@ install:
   - pip install boto3
 
 script:
-  - touch .aws_vault.txt
+  - echo "travis" > .aws_vault.txt
   - make testing
 
