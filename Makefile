@@ -9,7 +9,7 @@ production :
 	$(MAKE) testing
 	ansible-playbook deploy-prod.yml
 
-travis :
+testing :
 	$(MAKE) testing
 	ansible-playbook deploy-testing.yml
 

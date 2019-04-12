@@ -17,5 +17,5 @@ install:
 
 script:
   - touch .aws_vault.txt
-  - make travis
+  - make testing
 
