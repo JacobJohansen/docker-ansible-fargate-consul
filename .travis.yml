@@ -17,7 +17,7 @@ install:
 
 script:
   - echo "travis" > .aws_vault.txt
-  - sed -i '' "s/000000000000/$ACCOUNT/g" .travis/nuke-config.yml
+  - sed -i '' "s/000000000000/$AWS_ACCOUNT/g" .travis/nuke-config.yml
   - make testing
   - docker build . -t rebuy-de/aws_nuke
   - docker run -a stdin -a stdout -ti rebuy-de/aws_nuke -c .travis/nuke-config.yml
