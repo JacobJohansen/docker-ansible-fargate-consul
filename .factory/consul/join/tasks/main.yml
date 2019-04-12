@@ -6,4 +6,5 @@
 #
 ########################################################################################################################
 
-    - command: "consul join {{ hostvars['consul_master']['ip'] }}"
+    - name: "join local cluster"
+      command: "consul join {{ hostvars['consul_master']['ip'] }}"
