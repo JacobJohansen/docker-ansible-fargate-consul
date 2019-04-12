@@ -26,7 +26,3 @@
             cidr_ip: 0.0.0.0/0
             rule_desc: allow all on port 8500
       register: securitygroup
-
-    - name: Checking security group id
-      debug:
-        msg: "{{ securitygroup.group_id }}"
