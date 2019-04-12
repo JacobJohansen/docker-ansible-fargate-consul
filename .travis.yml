@@ -27,4 +27,4 @@ matrix:
         - mv cloud-nuke_linux_amd64 cloud-nuke
         - chmod +x cloud-nuke
         - export PATH=$PATH:$(pwd)
-        - cloud-nuke aws $AWS_REGION
+        - echo -n 'nuke' | cloud-nuke aws $AWS_REGION
